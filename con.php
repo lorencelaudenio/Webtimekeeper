@@ -5,12 +5,6 @@ $databaseName = 'timeinout';
 $databaseUsername = 'root';
 $databasePassword = '1234';
 
-//$databaseHost = '10.136.226.98';
-//$databaseName = '4312254_db';
-//$databaseUsername = '4312254_db';
-//$databasePassword = 'xmR}Dc5s0F2zwP-j';
-
-
 
 // Open a new connection to the MySQL server
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
