@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 include('con.php');
+include('scripts.php');
 
 $username = $_POST['username'];
 $fullname = $_POST['fullname'];
@@ -37,23 +38,51 @@ if(isset($_POST['register'])){
 }
 ?>
 
-<title>Bundyclock - Registration</title>
+<title>Webtimekeeper - Registration</title>
 
-<div class="container">
-    <div class="py-5 text-center">
-        <form method="POST" action="register.php" class="form-signin">
-            <img class="mb-4" src="/lorence/img/clock.png" alt="" width="72" height="72">
-            <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-            <h4 class="h4 mb-3 font-weight-normal">To record your timein and timeout.</h4>
-            <input class="form-control" type="text" name="username" placeholder="Username" />
-            <input class="form-control" type="text" name="fullname" placeholder="Full name" />
-            <input type="password" name="Password" class="form-control" placeholder="Password" required>
-            <input type="password" name="ConfirmPassword" class="form-control" placeholder="Confirm Password" required>
-            <!--<input class="btn btn-lg btn-primary btn-success" type="submit" name="register" value="Register" />-->
-            <button class="btn btn-lg btn-primary btn-block" type="submit" name="register">Register</button>
-            <br/>
-            <p class="mt-5 mb-3 text-muted text-center">Already registered? <a href="/lorence/index.php">Timein here</a></p>
-        </form>
+
+
+<section class="vh-100 " style="background-color: hsl(0, 0%, 96%)">
+    <div class="container py-3 h-100  col-md-4 rounded">
+    <div class="row d-flex  justify-content-center align-items-center h-100">
+    <div class="card   shadow " style="border-radius: 1rem;">
+        <div class="card-body p-4 text-center">
+            <form class="col-12" method="POST" action="register.php">
+                <div class="text-center">
+                    <h4 class="mb-3">Webtimekeeper <i class="bi bi-clock"></i>  </h4>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Enter username" required>
+                </div>
+
+                <div class="form-group mt-3">
+                    <input type="text" name="fullname" class="form-control" id="fullname" aria-describedby="fullnameHelp" placeholder="Enter fullname" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="password" name="Password" id="password" class="form-control" placeholder="Enter password" aria-label="Enter password" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><i class="bi bi-eye" onclick="ShowPass()"></i></span>
+                    </div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" placeholder="Confirm password" aria-label="Confirm password" aria-describedby="basic-addon2" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2"><i class="bi bi-eye" onclick="ShowPass()"></i></span>
+                    </div>
+                </div>
+                
+                <input type="submit" name="register" value="Register" class="btn btn-primary btn-lg btn-block">
+
+                <div class="small alert alert-danger mt-3 text-muted" role="alert">
+                    <p class="mt-1 mb-1 text-muted text-center">Already registered? <a href="index.php">Timein here</a></p>
+                </div>
+            </form>   
+        </div>
     </div>
-</div>
+    </div>
+    </div>
+</section>
 <?php include('footer.php');?>
