@@ -1,61 +1,49 @@
 <?php
-include('con.php');
+error_reporting (E_ALL ^ E_NOTICE); //para no undefined error
+include("header.php");
+include("con.php");
+include("scripts.php");
+
 session_start();
 $username = $_SESSION['username'];
 
-$view = $mysqli->query("SELECT * FROM $username ORDER BY id DESC");
+$view = $conn->query("SELECT * FROM $username ORDER BY id DESC");
+
+echo "
+<div class='container p-3 border border-primary'>
+    <table id='myTable' class='display'>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Timein</th>
+            <th>Timeout</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+";
+$query = mysqli_query($conn,"SELECT * FROM $username");
+while($row = mysqli_fetch_assoc($query ?? null)) {
+    $db_date = $row["date"];
+    $db_timein = $row["timein"];
+    $db_timeout = $row["timeout"];
+    $db_notes = $row["notes"];
+    echo "
+        <tr>
+            <td>$db_date</td>
+            <td>$db_timein</td>
+            <td>$db_timeout</td>
+            <td>$db_notes</td>
+        </tr>
+    ";
+}
 ?>
 
-<title>Bundyclock - View Records</title>
-
-
-<div class="position-fixed bottom-0 left-0 p-3" style="z-index: 5; left: 0; bottom: 0;"">
-    <div class="toast  " role="alert"  data-autohide="true"  data-delay="5000">
-        <div class="toast-header">
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-              Welcome back, <?php echo ucfirst($username);?>! Retrieving your records. Please wait...
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-        </div>
-        
-    </div>
+    </tbody>
+    </table>
 </div>
 
-
-<div class="container">
-    <div class="py-5 text-center">
-        <img class="mb-4" src="/lorence/img/clock.png" alt="" width="72" height="72">
-        <h2><?php echo "Welcome, " . ucwords($username);?> <i class="bi bi-emoji-smile"></i></h2>
-  </div>
-
-
-
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Timein</th>
-      <th scope="col">Timeout</th>
-      <th scope="col">Notes</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php
-	// Fetch the next row of a result set as an associative array
-	while ($row = mysqli_fetch_array($view)) {
-		echo '<tr>
-      <th scope="row">'.$row['date'].'</th>
-      <td>'.$row['timein'].'</td>
-      <td>'.$row['timeout'].'</td>
-      <td>'.$row['notes'].'</td>
-    	</tr>';	
-	}
-	?>
-  </tbody>
-</table>
-
-
-	
 <?php include('footer.php');?>
+
+
+
