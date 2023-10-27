@@ -49,7 +49,7 @@ if(isset($_POST['register'])){
         <div class="card-body p-4 text-center">
             <form class="col-12" method="POST" action="register.php">
                 <div class="text-center">
-                    <h4 class="mb-3">Webtimekeeper <i class="bi bi-clock"></i>  </h4>
+                    <h4 class="mb-3">Webtimekeeper <i class="bi bi-clock"></i> Registration </h4>
                 </div>
 
                 <div class="form-group mt-3">
