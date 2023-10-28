@@ -10,7 +10,7 @@ $notes = $_POST['notes'];
 $timein = "";
 $timeout = "";
 
-// date_default_timezone_set("Asia/Manila");
+date_default_timezone_set("Asia/Manila");
 $curdate = date("Y-m-d");
 $curtime = date("H:i:s");
 $timezone = date_default_timezone_set("Asia/Manila");
@@ -30,8 +30,22 @@ if(isset($_POST['timein'])) {
                 $timeoutassoc = $datelogassoc['timeout'];
 
                 if(!empty($timeinassoc)){
-                    echo "<script>alert('You are already logged in. Please logout.');</script>";
-                    $timein = "disabled";
+                    if(!empty($timeoutassoc)){
+                        echo "
+                            <script>
+                            alert('You are already logged in and logged out today!');
+                            window.location.href = 'view.php';
+                            </script>
+                        ";
+                        $timein = "disabled";
+                        $timeout = "disabled";
+                    }else{
+                        echo "<script>alert('You are already logged in. Please logout.');</script>";
+                        $timein = "disabled";
+                    }
+                }else{
+                    $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
+                    echo "<script>alert('Succesfully logged in!');</script>";
                 }
             }else{
                $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
@@ -54,7 +68,12 @@ if(isset($_POST['timeout'])) {
                 $timeoutassoc = $datelogassoc['timeout'];
 
                 if($timeoutassoc != '00:00:00'){
-                    echo "<script>alert('You are already logged out. Please contact administrator.');</script>";
+                    echo "
+                        <script>
+                            alert('You are already logged out!');
+                            window.location.href = 'view.php';
+                        </script>
+                    ";
                     $timeout = "disabled";
                 }else{
                     $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `notes`='$notes' WHERE `date`='$curdate'");
