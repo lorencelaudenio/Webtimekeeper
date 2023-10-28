@@ -10,7 +10,7 @@ $notes = $_POST['notes'];
 $timein = "";
 $timeout = "";
 
-date_default_timezone_set("Asia/Manila");
+// date_default_timezone_set("Asia/Manila");
 $curdate = date("Y-m-d");
 $curtime = date("H:i:s");
 $timezone = date_default_timezone_set("Asia/Manila");
@@ -122,15 +122,15 @@ if(isset($_POST['view'])) {
                     <input type="text" name="notes" id="notes" class="form-control" placeholder="Enter notes" aria-label="Enter notes" aria-describedby="basic-addon2">
                 </div>
                 
-                <div class="btn-group" role="group" aria-label="Basic example">
+                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
                     <input type="submit" name="timein" class="btn btn-success" value="Timein" <?php echo $timein;?>/>
                     <input type="submit" name="timeout" class="btn btn-primary" value="Timeout" <?php echo $timeout;?>/>
                     <input type="submit" name="view" class="btn btn-info" value="View"/>
                 </div>
 
-                <div class="small alert alert-danger mt-3 text-muted" role="alert">
-                    <p class="mt-1 mb-1 text-muted text-center">No account yet? <a href="register.php">Register here</a></p>
-                </div>
+                <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
+                    class=""><u>Register here</u></a>
+                </p>
             </form>   
         </div>
     </div>

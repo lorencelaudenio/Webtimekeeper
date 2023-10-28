@@ -7,6 +7,7 @@
     $('#myTable').DataTable();
     paging: true
     scrollY: 400
+    responsive: true
     } );
 </script>
 

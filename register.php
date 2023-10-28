@@ -53,32 +53,40 @@ if(isset($_POST['register'])){
                 </div>
 
                 <div class="form-group mt-3">
-                    <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Enter username" required>
+                    <input type="text" name="fullname" class="form-control" id="fullname" aria-describedby="fullnameHelp" placeholder="Your Fullname" required>
                 </div>
 
                 <div class="form-group mt-3">
-                    <input type="text" name="fullname" class="form-control" id="fullname" aria-describedby="fullnameHelp" placeholder="Enter fullname" required>
+                    <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Your Username" required>
                 </div>
 
+                
+
                 <div class="input-group mb-3">
-                    <input type="password" name="Password" id="password" class="form-control" placeholder="Enter password" aria-label="Enter password" aria-describedby="basic-addon2" required>
+                    <input type="password" name="Password" id="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="bi bi-eye" onclick="ShowPass()"></i></span>
                     </div>
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" placeholder="Confirm password" aria-label="Confirm password" aria-describedby="basic-addon2" required>
+                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" placeholder="Repeat your password" aria-label="Confirm password" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="bi bi-eye" onclick="ShowPass()"></i></span>
                     </div>
+                </div>
+
+                <div class="form-check-inline mb-3">
+                    <label class="form-check-label">
+                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="privacy.php">Privacy Policy</a>
+                    </label>
                 </div>
                 
-                <input type="submit" name="register" value="Register" class="btn btn-primary btn-lg btn-block">
+                <input type="submit" name="register" id="register" value="Register" class="btn btn-primary btn-lg btn-block" disabled>
 
-                <div class="small alert alert-danger mt-3 text-muted" role="alert">
-                    <p class="mt-1 mb-1 text-muted text-center">Already registered? <a href="index.php">Timein here</a></p>
-                </div>
+                <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="index.php"
+                    class=""><u>Timein here</u></a>
+                </p>
             </form>   
         </div>
     </div>
