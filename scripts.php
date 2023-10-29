@@ -2,13 +2,23 @@
     $(".toast").toast("show");
 </script>
 
+
 <script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
+$(document).ready( function () {
+    $('#myTable').DataTable(
+
+      {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    }
+    );
     paging: true
     scrollY: 400
     responsive: true
-    } );
+    
+} );
 </script>
 
 <script>
