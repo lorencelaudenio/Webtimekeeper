@@ -10,7 +10,7 @@ $username = $_SESSION['username'];
 $view = $conn->query("SELECT * FROM $username ORDER BY id DESC");
 
 echo "
-
+<title>View</title>
     <section class='vh-100 ' style='background-color: hsl(0, 0%, 96%)'>
         <div class='container py-3 h-100  col-md-4 rounded'>
             <div class='row d-flex  justify-content-center align-items-center h-100'>
