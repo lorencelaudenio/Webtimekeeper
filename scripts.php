@@ -49,6 +49,3 @@ function checkTime(i) {
   return i;
 }
 </script>
-
-
-

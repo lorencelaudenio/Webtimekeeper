@@ -1,17 +1,14 @@
 <?php
 include('header.php');
-include('conn.php');
+include('con.php');
 include('scripts.php');
 
-$username = $_POST['username'] ?? null;
-$password = $_POST['password'] ?? null;
-$cpassword = $_POST['password'] ?? null;
-$notes = $_POST['notes'] ?? null;
+$username = $_POST['username'];
+$password = $_POST['password'];
+$cpassword = $_POST['password'];
+$notes = $_POST['notes'];
 $timein = "";
 $timeout = "";
-$otin = "";
-$otout = "";
-         
 
 date_default_timezone_set("Asia/Manila");
 $curdate = date("Y-m-d");
@@ -47,11 +44,11 @@ if(isset($_POST['timein'])) {
                         $timein = "disabled";
                     }
                 }else{
-                    $insert = $conn->query("INSERT INTO $username (`date`, `timein`,`timeout`, `otin`, `otout`, `notes`) VALUES ('$curdate', '$curtime', null, null, null, '$notes')");
+                    $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
                     echo "<script>alert('Succesfully logged in!');</script>";
                 }
             }else{
-               $insert = $conn->query("INSERT INTO $username (`date`, `timein`,`timeout`, `otin`, `otout`, `notes`) VALUES ('$curdate', '$curtime', null, null, null, '$notes')");
+               $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
                 echo "<script>alert('Succesfully logged in!');</script>"; 
             }
         }
@@ -69,10 +66,8 @@ if(isset($_POST['timeout'])) {
             if (mysqli_num_rows($checkDate) != 0){
                 $datelogassoc = mysqli_fetch_assoc($checkDate);
                 $timeoutassoc = $datelogassoc['timeout'];
-                if(is_null($timeoutassoc)){
-                    $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `otin`= null, `notes`='$notes' WHERE `date`='$curdate'");
-                    echo "<script>alert(`Succesfully logged out!`);</script>";
-                }else{
+
+                if($timeoutassoc != '00:00:00'){
                     echo "
                         <script>
                             alert('You are already logged out!');
@@ -80,74 +75,28 @@ if(isset($_POST['timeout'])) {
                         </script>
                     ";
                     $timeout = "disabled";
+                }else{
+                    $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `notes`='$notes' WHERE `date`='$curdate'");
+                    echo "<script>alert(`Succesfully logged out!`);</script>";
                 }
             }
         }
     }
 }
 
-if(isset($_POST['otout'])) {
+
+if(isset($_POST['view'])) {
     if($username == '' && $password == ''){
         echo "<script>alert('All fields required.');</script>";
     }else{
-        $checkUsers = $conn->query("SELECT * FROM `tblUsers` where `username`='$username' && `password`='$password'");
-        if (mysqli_num_rows($checkUsers) > 0){
-            $checkDate = $conn->query("SELECT * FROM $username WHERE `date` = '$curdate'");
-
-            if (mysqli_num_rows($checkDate) != 0){
-                $datelogassoc = mysqli_fetch_assoc($checkDate);
-                $timeoutassoc = $datelogassoc['timeout'];
-                $otinassoc = $datelogassoc['otin'];
-                $otoutassoc = $datelogassoc['otout'];
-                $ognotes = $datelogassoc['notes'];
-                $upnotes = $ognotes ." / OT Notes: ". $ognotes;
-
-                if(!empty($otoutassoc)){
-                    echo "<script>
-                            alert(`You already loggedout from overtime!`);
-                            window.location.href = 'view.php';
-                        </script>";
-                }else{
-                    if(is_null($timeoutassoc)){
-                        echo "<script>alert(`Oops! You seems like you haven't logged out yet. Press 'Timeout' button first.`);</script>";
-                    }else{
-                        $otout = $conn->query("UPDATE $username SET `otin`='$timeoutassoc', `otout`='$curtime', `notes`='$upnotes' WHERE `date`='$curdate'");
-                        echo "<script>
-                                alert(`Succesfully loggedout from overtime!`);
-                                window.location.href = 'view.php';
-                            </script>";
-                    }
-                }
-                
-            }
-        }
-    }
-}
-
-
-if (isset($_POST['view'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if (empty($username) || empty($password)) {
-        echo "<script>alert('All fields required.');</script>";
-    } else {
-        // Connect to the database here
-        // Implement password hashing and validation
-        // Use prepared statements for SQL queries
-        // Check for successful login and start the session
         $checkUsers = $conn->query("SELECT * FROM tblUsers where username='$username' && password='$password'");
         if (mysqli_num_rows($checkUsers) > 0){
             session_start();
             $_SESSION['username'] = $username;
-            header("Location: view.php");
-            exit();
-        } else {
-            echo "<script>alert('Invalid username or password.');</script>";
+            exit(header("location: view.php"));
         }
     }
 }
-
 ?>
 <title>Webtimekeeper</title>
 
@@ -195,11 +144,10 @@ if (isset($_POST['view'])) {
                 <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
                     <input type="submit" name="timein" class="btn btn-success" value="Timein" <?php echo $timein;?>/>
                     <input type="submit" name="timeout" class="btn btn-primary" value="Timeout" <?php echo $timeout;?>/>
-                    <input type="submit" name="otout" class="btn btn-warning" value="OT Out" <?php echo $otout;?>/>
                     <input type="submit" name="view" class="btn btn-info" value="View"/>
                 </div>
 
-                <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register"
+                <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
                     class=""><u>Register here</u></a>
                 </p>
             </form>   

@@ -1,12 +1,12 @@
 <?php
 include('header.php');
-include('conn.php');
+include('con.php');
 include('scripts.php');
 
-$username = $_POST['username'] ?? null;
-$fullname = $_POST['fullname'] ?? null;
-$password = $_POST['Password'] ?? null;
-$confirmpassword = $_POST['ConfirmPassword'] ?? null;
+$username = $_POST['username'];
+$fullname = $_POST['fullname'];
+$password = $_POST['Password'];
+$confirmpassword = $_POST['ConfirmPassword'];
 
 if(isset($_POST['register'])){
     if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)){
@@ -23,10 +23,8 @@ if(isset($_POST['register'])){
                     CREATE TABLE $username (
                         id int(11) AUTO_INCREMENT PRIMARY KEY,
                         date date,
-                        timein time,
-                        timeout time,
-                        otin time,
-                        otout time,
+                        timein varchar(256),
+                        timeout varchar(256),
                         notes varchar(256)
                     );
                 ");
@@ -80,13 +78,13 @@ if(isset($_POST['register'])){
 
                 <div class="form-check-inline mb-3">
                     <label class="form-check-label">
-                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="privacy">Privacy Policy</a>
+                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="privacy.php">Privacy Policy</a>
                     </label>
                 </div>
                 
                 <input type="submit" name="register" id="register" value="Register" class="btn btn-primary btn-lg btn-block" disabled>
 
-                <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="index"
+                <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="index.php"
                     class=""><u>Timein here</u></a>
                 </p>
             </form>   

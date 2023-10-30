@@ -1,7 +1,7 @@
 <?php
 error_reporting (E_ALL ^ E_NOTICE); //para no undefined error
 include("header.php");
-include("conn.php");
+include("con.php");
 include("scripts.php");
 
 session_start();
@@ -10,7 +10,7 @@ $username = $_SESSION['username'];
 $view = $conn->query("SELECT * FROM $username ORDER BY id DESC");
 
 echo "
-<title>View</title>
+
     <section class='vh-100 ' style='background-color: hsl(0, 0%, 96%)'>
         <div class='container py-3 h-100  col-md-4 rounded'>
             <div class='row d-flex  justify-content-center align-items-center h-100'>
@@ -29,8 +29,6 @@ echo "
                                     <th>Date</th>
                                     <th>Timein</th>
                                     <th>Timeout</th>
-                                    <th>OT In</th>
-                                    <th>OT Out</th>
                                     <th>Notes</th>
                                 </tr>
                             </thead>
@@ -42,16 +40,12 @@ while($row = mysqli_fetch_assoc($query ?? null)) {
     $db_date = $row["date"];
     $db_timein = $row["timein"];
     $db_timeout = $row["timeout"];
-    $db_otin = $row["otin"];
-    $db_otout = $row["otout"];
     $db_notes = $row["notes"];
     echo "
                                 <tr>
                                     <td>$db_date</td>
                                     <td>$db_timein</td>
                                     <td>$db_timeout</td>
-                                    <td>$db_otin</td>
-                                    <td>$db_otout</td>
                                     <td>$db_notes</td>
                                 </tr>
     ";
