@@ -147,7 +147,7 @@ if(isset($_POST['view'])) {
                     <input type="submit" name="view" class="btn btn-info" value="View"/>
                 </div>
 
-                <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
+                <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register"
                     class=""><u>Register here</u></a>
                 </p>
             </form>   

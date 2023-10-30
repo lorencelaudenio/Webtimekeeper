@@ -1,8 +1,8 @@
 <footer class=" text-muted text-center text-small">
 	<ul class="list-inline">
-		<li class="list-inline-item"><a href="index.php">Home</a></li>
-		<li class="list-inline-item"><a href="privacy.php">Privacy</a></li>
-		<li class="list-inline-item"><a href="about.php">About</a></li>
+		<li class="list-inline-item"><a href="index">Home</a></li>
+		<li class="list-inline-item"><a href="privacy">Privacy</a></li>
+		<li class="list-inline-item"><a href="about">About</a></li>
 		<li class="list-inline-item"><a href="https://www.buymeacoffee.com/Webtimekeeper" target="_blank">Support</a></li>
 		<!-- <li class="list-inline-item"><a href="releasenotes.php" >Release Notes</a></li> -->
 	</ul>
