@@ -23,8 +23,10 @@ if(isset($_POST['register'])){
                     CREATE TABLE $username (
                         id int(11) AUTO_INCREMENT PRIMARY KEY,
                         date date,
-                        timein varchar(256),
-                        timeout varchar(256),
+                        timein time,
+                        timeout time,
+                        otin time,
+                        otout time,
                         notes varchar(256)
                     );
                 ");

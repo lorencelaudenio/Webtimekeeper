@@ -29,6 +29,8 @@ echo "
                                     <th>Date</th>
                                     <th>Timein</th>
                                     <th>Timeout</th>
+                                    <th>OT In</th>
+                                    <th>OT Out</th>
                                     <th>Notes</th>
                                 </tr>
                             </thead>
@@ -40,12 +42,16 @@ while($row = mysqli_fetch_assoc($query ?? null)) {
     $db_date = $row["date"];
     $db_timein = $row["timein"];
     $db_timeout = $row["timeout"];
+    $db_otin = $row["otin"];
+    $db_otout = $row["otout"];
     $db_notes = $row["notes"];
     echo "
                                 <tr>
                                     <td>$db_date</td>
                                     <td>$db_timein</td>
                                     <td>$db_timeout</td>
+                                    <td>$db_otin</td>
+                                    <td>$db_otout</td>
                                     <td>$db_notes</td>
                                 </tr>
     ";
