@@ -1,5 +1,5 @@
 <?php
-include('con.php');
+include('conn.php');
 ?>
 <title>ePunch - Release Notes</title>
 <div class="container">
