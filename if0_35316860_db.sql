@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 27, 2023 at 08:27 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Host: sql303.infinityfree.com
+-- Generation Time: Oct 29, 2023 at 10:47 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.2.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,8 +19,29 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `f0_35316860_db`
+-- Database: `if0_35316860_db`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `guest`
+--
+
+CREATE TABLE `guest` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `timein` varchar(256) DEFAULT NULL,
+  `timeout` varchar(256) DEFAULT NULL,
+  `notes` varchar(256) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `guest`
+--
+
+INSERT INTO `guest` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
+(1, '2023-10-28', '11:07:11', '11:59:52', '');
 
 -- --------------------------------------------------------
 
@@ -33,14 +55,16 @@ CREATE TABLE `lorence` (
   `timein` varchar(256) DEFAULT NULL,
   `timeout` varchar(256) DEFAULT NULL,
   `notes` varchar(256) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `lorence`
 --
 
 INSERT INTO `lorence` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
-(2, '2023-10-28', '02:02:49', '02:06:40', '');
+(2, '2023-10-28', '02:02:49', '02:06:40', ''),
+(3, '2023-10-29', '02:22:01', '03:44:07', ''),
+(4, '2023-10-30', '10:12:41', '00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -53,18 +77,25 @@ CREATE TABLE `tblUsers` (
   `username` varchar(256) NOT NULL,
   `fullname` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblUsers`
 --
 
 INSERT INTO `tblUsers` (`id`, `username`, `fullname`, `password`) VALUES
-(25, 'lorence', 'lorence', '1234');
+(25, 'lorence', 'lorence', '1234'),
+(26, 'guest', 'guest', '1234');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `guest`
+--
+ALTER TABLE `guest`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `lorence`
@@ -83,16 +114,22 @@ ALTER TABLE `tblUsers`
 --
 
 --
+-- AUTO_INCREMENT for table `guest`
+--
+ALTER TABLE `guest`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `lorence`
 --
 ALTER TABLE `lorence`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblUsers`
 --
 ALTER TABLE `tblUsers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
