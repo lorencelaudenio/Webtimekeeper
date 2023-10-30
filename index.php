@@ -70,7 +70,7 @@ if(isset($_POST['timeout'])) {
                 $datelogassoc = mysqli_fetch_assoc($checkDate);
                 $timeoutassoc = $datelogassoc['timeout'];
                 if(is_null($timeoutassoc)){
-                    $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `otin`=null, `notes`='$notes' WHERE `date`='$curdate'");
+                    $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `otin`= null, `notes`='$notes' WHERE `date`='$curdate'");
                     echo "<script>alert(`Succesfully logged out!`);</script>";
                 }else{
                     echo "
@@ -116,7 +116,6 @@ if(isset($_POST['otout'])) {
                                 alert(`Succesfully loggedout from overtime!`);
                                 window.location.href = 'view.php';
                             </script>";
-                        
                     }
                 }
                 
@@ -126,18 +125,29 @@ if(isset($_POST['otout'])) {
 }
 
 
-if(isset($_POST['view'])) {
-    if($username == '' && $password == ''){
+if (isset($_POST['view'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if (empty($username) || empty($password)) {
         echo "<script>alert('All fields required.');</script>";
-    }else{
+    } else {
+        // Connect to the database here
+        // Implement password hashing and validation
+        // Use prepared statements for SQL queries
+        // Check for successful login and start the session
         $checkUsers = $conn->query("SELECT * FROM tblUsers where username='$username' && password='$password'");
         if (mysqli_num_rows($checkUsers) > 0){
             session_start();
             $_SESSION['username'] = $username;
-            exit(header("location: view.php"));
+            header("Location: view.php");
+            exit();
+        } else {
+            echo "<script>alert('Invalid username or password.');</script>";
         }
     }
 }
+
 ?>
 <title>Webtimekeeper</title>
 
