@@ -1,4 +1,6 @@
-</div>
+		</div>
+	</div>
+</section>
 
 <footer class=" text-muted text-center text-small">
 	<ul class="list-inline">

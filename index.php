@@ -16,7 +16,6 @@ $curtime = date("H:i:s");
 $timezone = date_default_timezone_set("Asia/Manila");
 
 
-
 if(isset($_POST['timein'])) {
     if($username == '' && $password == ''){
         echo "<script>alert('All fields required.');</script>";
@@ -30,15 +29,38 @@ if(isset($_POST['timein'])) {
                 $dateassoc = $datelogassoc['date'];
                 $timeinassoc = $datelogassoc['timein'];
                 $timeoutassoc = $datelogassoc['timeout'];
+                
 
                 if(!empty($timeinassoc)){
                     if(!empty($timeoutassoc)){
+                        session_start();
+                        $_SESSION['username'] = $username;
+                        
+
+                        // echo "
+                        //     <script>
+                        //     alert('You are already logged in and logged out today!');
+                        //     window.location.href = 'view.php';
+                        //     </script>
+                        // ";
+
                         echo "
-                            <script>
-                            alert('You are already logged in and logged out today!');
-                            window.location.href = 'view.php';
-                            </script>
-                        ";
+                    
+                        <div style='style='position: absolute; top:50vh; left:80vh'>  
+                            <div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>  
+                                <div class='toast-header' data-delay='10000'>
+                                    <strong class='mr-auto text-primary'>Toast Header</strong>
+                                    <small class='text-muted'>5 mins ago</small>
+                                    <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
+                                    </div>
+                                    <div class='toast-body'>
+                                    You are already logged in!
+                                </div>
+                            </div>
+                        </div>
+                    ";
+
+                        // exit(header("location: view.php"));
                         $timein = "disabled";
                         $timeout = "disabled";
                     }else{
@@ -50,8 +72,8 @@ if(isset($_POST['timein'])) {
                     //echo "<script>alert('Succesfully logged in!');</script>";
                     echo "
                     
-                    <div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>
-    <div class='toast-header'>
+                    <div class='toast' >    
+                    <div class='toast-header' data-delay='5000'>
       <strong class='mr-auto text-primary'>Toast Header</strong>
       <small class='text-muted'>5 mins ago</small>
       <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
@@ -67,8 +89,8 @@ if(isset($_POST['timein'])) {
                 // echo "<script>alert('Succesfully logged in!');</script>"; 
                 echo "
                     
-                    <div class='toast' data-autohide='false' class='d-flex justify-content-center align-items-center' style='min-height: 200px;'>
-    <div class='toast-header'>
+                <div class='toast' data-delay='10000'>    
+                <div class='toast-header'>
       <strong class='mr-auto text-primary'>Toast Header</strong>
       <small class='text-muted'>5 mins ago</small>
       <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
@@ -129,9 +151,7 @@ if(isset($_POST['view'])) {
 <title>Webtimekeeper</title>
 
 
-<section class="vh-100 " style="background-color: hsl(0, 0%, 96%)">
-    <div class="container py-3 h-100  col-md-4 rounded">
-    <div class="row d-flex  justify-content-center align-items-center h-100">
+
     <div class="card   shadow " style="border-radius: 1rem;">
         <div class="card-body p-4 text-center">
             <form class="col-12" action="" method="post">
@@ -180,9 +200,7 @@ if(isset($_POST['view'])) {
             </form>   
         </div>
     </div>
-    </div>
-    </div>
-</section>
+
 
 <?php include('footer.php');?>
 
