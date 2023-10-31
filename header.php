@@ -28,3 +28,5 @@
 
     <body onload="startTime()">
 </head>
+
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">

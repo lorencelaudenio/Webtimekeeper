@@ -15,6 +15,8 @@ $curdate = date("Y-m-d");
 $curtime = date("H:i:s");
 $timezone = date_default_timezone_set("Asia/Manila");
 
+
+
 if(isset($_POST['timein'])) {
     if($username == '' && $password == ''){
         echo "<script>alert('All fields required.');</script>";
@@ -45,11 +47,37 @@ if(isset($_POST['timein'])) {
                     }
                 }else{
                     $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
-                    echo "<script>alert('Succesfully logged in!');</script>";
+                    //echo "<script>alert('Succesfully logged in!');</script>";
+                    echo "
+                    
+                    <div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>
+    <div class='toast-header'>
+      <strong class='mr-auto text-primary'>Toast Header</strong>
+      <small class='text-muted'>5 mins ago</small>
+      <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
+    </div>
+    <div class='toast-body'>
+      Some text inside the toast body
+    </div>
+  </div>
+                    ";
                 }
             }else{
                $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
-                echo "<script>alert('Succesfully logged in!');</script>"; 
+                // echo "<script>alert('Succesfully logged in!');</script>"; 
+                echo "
+                    
+                    <div class='toast' data-autohide='false' class='d-flex justify-content-center align-items-center' style='min-height: 200px;'>
+    <div class='toast-header'>
+      <strong class='mr-auto text-primary'>Toast Header</strong>
+      <small class='text-muted'>5 mins ago</small>
+      <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
+    </div>
+    <div class='toast-body'>
+      Some text inside the toast body
+    </div>
+  </div>
+                    ";
             }
         }
     }
@@ -99,7 +127,6 @@ if(isset($_POST['view'])) {
 }
 ?>
 <title>Webtimekeeper</title>
-
 
 
 <section class="vh-100 " style="background-color: hsl(0, 0%, 96%)">
@@ -156,4 +183,6 @@ if(isset($_POST['view'])) {
     </div>
     </div>
 </section>
+
 <?php include('footer.php');?>
+

@@ -1,5 +1,7 @@
 <script>
-    $(".toast").toast("show");
+$(document).ready(function(){
+  $('.toast').toast('show');
+});
 </script>
 
 
