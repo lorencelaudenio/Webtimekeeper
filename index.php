@@ -3,10 +3,10 @@ include('header.php');
 include('conn.php');
 include('scripts.php');
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$cpassword = $_POST['password'];
-$notes = $_POST['notes'];
+$username = $_POST['username'] ?? null;
+$password = $_POST['password'] ?? null;
+$cpassword = $_POST['password'] ?? null;
+$notes = $_POST['notes'] ?? null;
 $timein = "";
 $timeout = "";
 
