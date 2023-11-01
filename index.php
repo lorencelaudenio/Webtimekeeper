@@ -3,6 +3,7 @@ include('header.php');
 include('conn.php');
 include('scripts.php');
 
+
 $username = $_POST['username'] ?? null;
 $password = $_POST['password'] ?? null;
 $cpassword = $_POST['password'] ?? null;
@@ -44,21 +45,27 @@ if(isset($_POST['timein'])) {
                         //     </script>
                         // ";
 
-                        echo "
+                    //     echo "
                     
-                        <div style='style='position: absolute; top:50vh; left:80vh'>  
-                            <div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>  
-                                <div class='toast-header' data-delay='10000'>
-                                    <strong class='mr-auto text-primary'>Toast Header</strong>
-                                    <small class='text-muted'>5 mins ago</small>
-                                    <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
-                                    </div>
-                                    <div class='toast-body'>
-                                    You are already logged in!
-                                </div>
-                            </div>
-                        </div>
-                    ";
+                    //     <div style='style='position: absolute; top:50vh; left:80vh'>  
+                    //         <div class='toast' role='alert' aria-live='assertive' aria-atomic='true'>  
+                    //             <div class='toast-header' data-delay='10000'>
+                    //                 <strong class='mr-auto text-primary'>Toast Header</strong>
+                    //                 <small class='text-muted'>5 mins ago</small>
+                    //                 <button type='button' class='ml-2 mb-1 close' data-dismiss='toast'>&times;</button>
+                    //                 </div>
+                    //                 <div class='toast-body'>
+                    //                 You are already logged in!
+                    //             </div>
+                    //         </div>
+                    //     </div>
+                    // ";
+                    $alreadyLogin = "You are already logged in!";
+                    $displayMsg = $alreadyLogin;
+                    include('functions.php');
+                    showToasts();
+                    
+                    //alreadyLogin();
 
                         // exit(header("location: view.php"));
                         $timein = "disabled";
