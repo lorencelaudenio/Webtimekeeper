@@ -119,7 +119,7 @@ if(isset($_POST['view'])) {
                 </div>
 
                 <div >
-                    <h1 id="txt" class="display-4"></h1>
+                    <h1 id="txt" class="display-4 font-weight-bold"></h1>
                 </div>
 
                 <div>
