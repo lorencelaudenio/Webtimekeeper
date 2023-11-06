@@ -35,7 +35,7 @@ $(document).ready( function () {
 <script>
 function startTime() {
   const today = new Date();
-  let h = today.getHours();
+  let h = today.getHours() % 12 || 12;
   let m = today.getMinutes();
   let s = today.getSeconds();
   m = checkTime(m);
