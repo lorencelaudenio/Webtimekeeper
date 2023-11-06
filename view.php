@@ -10,6 +10,10 @@ $username = $_SESSION['username'];
 $view = $conn->query("SELECT * FROM $username ORDER BY id DESC");
 
 echo "
+
+    <section class='vh-100 ' style='background-color: hsl(0, 0%, 96%)'>
+        <div class='container py-3 h-100  col-md-4 rounded'>
+            <div class='row d-flex  justify-content-center align-items-center h-100'>
                 <div class='card   shadow ' style='border-radius: 1rem;'>
                     <div class='card-body p-4 text-center'>
                         <div class='text-center'>
@@ -50,6 +54,10 @@ while($row = mysqli_fetch_assoc($query ?? null)) {
                             </tbody>        
                         </table>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <?php include('footer.php');?>
 

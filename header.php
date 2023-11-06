@@ -28,9 +28,3 @@
 
     <body onload="startTime()">
 </head>
-
-<!-- Flexbox container for aligning the toasts -->
-<section class='vh-100 d-flex justify-content-center align-items-center' style="background-color: hsl(0, 0%, 96%); style='position: relative;" >
-    <div class='container py-3 h-100  col-md-4 rounded'>
-    <div class='row   justify-content-center align-items-center h-100'>
-

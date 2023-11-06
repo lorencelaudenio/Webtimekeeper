@@ -1,7 +1,3 @@
-		</div>
-	</div>
-</section>
-
 <footer class=" text-muted text-center text-small">
 	<ul class="list-inline">
 		<li class="list-inline-item"><a href="index.php">Home</a></li>
