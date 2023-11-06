@@ -38,10 +38,11 @@ function startTime() {
   let h = today.getHours() % 12 || 12;
   let m = today.getMinutes();
   let s = today.getSeconds();
-  let ampm = h >= 12 ? 'am' : 'pm';
+  // let ampm = h >= 12 ? 'am' : 'pm';
   m = checkTime(m);
   s = checkTime(s);
-  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s + " " + ampm;
+  // document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s + " " + ampm;
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
   setTimeout(startTime, 1000);
 }
 
