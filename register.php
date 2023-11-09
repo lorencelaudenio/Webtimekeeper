@@ -92,7 +92,7 @@ if (isset($_POST['register'])) {
 
                 <div class="form-check-inline mb-3">
                     <label class="form-check-label">
-                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="privacy.php">Privacy Policy</a>
+                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="#" data-toggle="modal" data-target="#myModal">Privacy Policy</a>
                     </label>
                 </div>
                 
@@ -107,6 +107,9 @@ if (isset($_POST['register'])) {
     </div>
     </div>
 </section>
-<?php include('footer.php');?>
+<?php 
+include('footer.php');
+include('modal.php');
+?>
 
 <html>
