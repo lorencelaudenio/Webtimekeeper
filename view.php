@@ -60,7 +60,7 @@ while($row = mysqli_fetch_assoc($query ?? null)) {
     </section>
 
 <?php include('footer.php');?>
-<title>Webtimekeeper - View</title>
+<title><?php echo $username = $_SESSION['username'];?>'s Webtimekeeper</title>
 
 
 

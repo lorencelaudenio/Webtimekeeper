@@ -108,3 +108,5 @@ if (isset($_POST['register'])) {
     </div>
 </section>
 <?php include('footer.php');?>
+
+<html>
