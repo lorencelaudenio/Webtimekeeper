@@ -51,3 +51,13 @@ function checkTime(i) {
   return i;
 }
 </script>
+
+<script>
+  $('#myModal').modal('show');
+});
+</script>
+
+<script>
+  $('#myModal2').modal('show');
+});
+</script>
