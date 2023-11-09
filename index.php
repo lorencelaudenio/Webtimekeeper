@@ -143,7 +143,7 @@ if (isset($_POST['view'])) {
 }
 
 ?>
-<title>Webtimekeeper</title>
+<title>Webtimekeeper - Time kept!</title>
 
 
 
