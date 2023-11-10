@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql303.infinityfree.com
--- Generation Time: Oct 29, 2023 at 10:47 PM
+-- Generation Time: Nov 10, 2023 at 04:33 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.22
 
@@ -64,7 +64,13 @@ CREATE TABLE `lorence` (
 INSERT INTO `lorence` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 (2, '2023-10-28', '02:02:49', '02:06:40', ''),
 (3, '2023-10-29', '02:22:01', '03:44:07', ''),
-(4, '2023-10-30', '10:12:41', '00:00:00', '');
+(5, '2023-10-31', '15:02:29', '15:02:41', ''),
+(6, '2023-11-01', '13:34:19', '15:29:06', '30%'),
+(7, '2023-11-06', '10:17:18', '20:30:01', ''),
+(8, '2023-11-07', '10:49:04', '00:00:00', ''),
+(9, '2023-11-08', '15:08:15', '00:00:00', ''),
+(10, '2023-11-09', '10:14:45', '21:42:17', ''),
+(11, '2023-11-10', '11:46:53', '00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -123,7 +129,7 @@ ALTER TABLE `guest`
 -- AUTO_INCREMENT for table `lorence`
 --
 ALTER TABLE `lorence`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tblUsers`
