@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql303.infinityfree.com
--- Generation Time: Nov 10, 2023 at 04:33 AM
+-- Generation Time: Nov 14, 2023 at 01:49 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.2.22
 
@@ -70,7 +70,30 @@ INSERT INTO `lorence` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 (8, '2023-11-07', '10:49:04', '00:00:00', ''),
 (9, '2023-11-08', '15:08:15', '00:00:00', ''),
 (10, '2023-11-09', '10:14:45', '21:42:17', ''),
-(11, '2023-11-10', '11:46:53', '00:00:00', '');
+(11, '2023-11-10', '11:46:53', '19:41:06', ''),
+(12, '2023-11-13', '14:50:19', '22:00:42', ''),
+(13, '2023-11-14', '11:57:02', '00:00:00', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `po`
+--
+
+CREATE TABLE `po` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `timein` varchar(256) DEFAULT NULL,
+  `timeout` varchar(256) DEFAULT NULL,
+  `notes` varchar(256) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `po`
+--
+
+INSERT INTO `po` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
+(1, '2023-11-14', '08:42:28', '00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -82,16 +105,18 @@ CREATE TABLE `tblUsers` (
   `id` int(11) NOT NULL,
   `username` varchar(256) NOT NULL,
   `fullname` varchar(256) NOT NULL,
-  `password` varchar(256) NOT NULL
+  `password` varchar(256) NOT NULL,
+  `datereg` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblUsers`
 --
 
-INSERT INTO `tblUsers` (`id`, `username`, `fullname`, `password`) VALUES
-(25, 'lorence', 'lorence', '1234'),
-(26, 'guest', 'guest', '1234');
+INSERT INTO `tblUsers` (`id`, `username`, `fullname`, `password`, `datereg`) VALUES
+(25, 'lorence', 'lorence', '1234', ''),
+(26, 'guest', 'guest', '1234', ''),
+(27, 'po', 'patry', '1234', '');
 
 --
 -- Indexes for dumped tables
@@ -107,6 +132,12 @@ ALTER TABLE `guest`
 -- Indexes for table `lorence`
 --
 ALTER TABLE `lorence`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `po`
+--
+ALTER TABLE `po`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -129,13 +160,19 @@ ALTER TABLE `guest`
 -- AUTO_INCREMENT for table `lorence`
 --
 ALTER TABLE `lorence`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `po`
+--
+ALTER TABLE `po`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblUsers`
 --
 ALTER TABLE `tblUsers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
