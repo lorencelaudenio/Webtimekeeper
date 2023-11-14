@@ -2,6 +2,7 @@
 include('header.php');
 include('conn.php');
 include('scripts.php');
+include('scripts.php');
 
 $username = $_POST['username'] ?? null;
 $password = $_POST['password'] ?? null;
@@ -141,6 +142,8 @@ if (isset($_POST['view'])) {
         }
     }
 }
+
+
 
 ?>
 <title>Webtimekeeper - Time kept!</title>

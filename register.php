@@ -3,14 +3,11 @@ include('header.php');
 include('conn.php');
 include('scripts.php');
 
-
 if (isset($_POST['register'])) {
     $username = $_POST['username'] ?? null;
     $fullname = $_POST['fullname'] ?? null;
     $password = $_POST['password'] ?? null;
     $confirmpassword = $_POST['confirmpassword'] ?? null;
-    $curdate = date("Y-m-d");
-    $curtime = date("H:i:s");
 
     if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)) {
         if ($password != $confirmpassword) {
@@ -25,7 +22,7 @@ if (isset($_POST['register'])) {
             if ($searchUsername->num_rows > 0) {
                 echo "<script>alert('Username already registered.');</script>";
             } else {
-                $sqladduser = $conn->query("INSERT INTO tblUsers (username, fullname, password, datereg) VALUES ('$username', '$fullname', '$password', '$curdate')");
+                $sqladduser = $conn->query("INSERT INTO tblUsers (username, fullname, password) VALUES ('$username', '$fullname', '$password')");
 
                 if ($sqladduser) {
                     $createTable = $conn->query("
