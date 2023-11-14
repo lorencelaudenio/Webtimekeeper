@@ -10,6 +10,7 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'] ?? null;
     $confirmpassword = $_POST['confirmpassword'] ?? null;
     $curdate = date("Y-m-d");
+    $curtime = date("H:i:s");
 
     if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)) {
         if ($password != $confirmpassword) {
@@ -18,15 +19,13 @@ if (isset($_POST['register'])) {
             // Sanitize user input to prevent SQL injection
             $username = mysqli_real_escape_string($conn, $username);
             $fullname = mysqli_real_escape_string($conn, $fullname);
-
-            // Hash the password using MD5 hash function
-            $hashedPassword = md5($password);
+            $password = mysqli_real_escape_string($conn, $password);
 
             $searchUsername = $conn->query("SELECT * FROM tblUsers WHERE username = '$username'");
             if ($searchUsername->num_rows > 0) {
                 echo "<script>alert('Username already registered.');</script>";
             } else {
-                $sqladduser = $conn->query("INSERT INTO tblUsers (username, fullname, password, datereg) VALUES ('$username', '$fullname', '$hashedPassword', '$curdate')");
+                $sqladduser = $conn->query("INSERT INTO tblUsers (username, fullname, password, datereg) VALUES ('$username', '$fullname', '$password', '$curdate')");
 
                 if ($sqladduser) {
                     $createTable = $conn->query("
@@ -53,7 +52,6 @@ if (isset($_POST['register'])) {
         echo "<script>alert('All fields required.');</script>";
     }
 }
-
 
 ?>
 
