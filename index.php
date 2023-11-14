@@ -10,6 +10,7 @@ $notes = $_POST['notes'] ?? null;
 $timein = "";
 $timeout = "";
 
+
 date_default_timezone_set("Asia/Manila");
 $curdate = date("Y-m-d");
 $curtime = date("H:i:s");
@@ -29,7 +30,10 @@ if (isset($_POST['timein'])) {
         $username = mysqli_real_escape_string($conn, $username);
         $password = mysqli_real_escape_string($conn, $password);
 
-        $checkUsers = $conn->query("SELECT * FROM tblUsers WHERE username='$username' AND password='$password'");
+        // Hash the password using MD5 hash function
+        $hashedPassword = md5($password);
+
+        $checkUsers = $conn->query("SELECT * FROM tblUsers WHERE username='$username' AND password='$hashedPassword'");
         
         if (mysqli_num_rows($checkUsers) > 0) {
             $checkDate = $conn->query("SELECT * FROM $username WHERE date = '$curdate'");
@@ -67,6 +71,7 @@ if (isset($_POST['timein'])) {
 }
 
 
+
 if (isset($_POST['timeout'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -79,9 +84,11 @@ if (isset($_POST['timeout'])) {
     } else {
         // Sanitize user input to prevent SQL injection
         $username = mysqli_real_escape_string($conn, $username);
-        $password = mysqli_real_escape_string($conn, $password);
+        
+        // Hash the password using MD5 hash function
+        $hashedPassword = md5($password);
 
-        $checkUsers = $conn->query("SELECT * FROM `tblUsers` WHERE `username`='$username' AND `password`='$password'");
+        $checkUsers = $conn->query("SELECT * FROM `tblUsers` WHERE `username`='$username' AND `password`='$hashedPassword'");
 
         if (mysqli_num_rows($checkUsers) > 0) {
             $checkDate = $conn->query("SELECT * FROM $username WHERE `date` = '$curdate'");
@@ -113,6 +120,7 @@ if (isset($_POST['timeout'])) {
 
 
 
+
 if (isset($_POST['view'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
@@ -122,9 +130,11 @@ if (isset($_POST['view'])) {
     } else {
         // Sanitize user input to prevent SQL injection
         $username = mysqli_real_escape_string($conn, $username);
-        $password = mysqli_real_escape_string($conn, $password);
+        
+        // Hash the password using MD5 hash function
+        $hashedPassword = md5($password);
 
-        $checkUsers = $conn->query("SELECT * FROM tblUsers WHERE username='$username' AND password='$password'");
+        $checkUsers = $conn->query("SELECT * FROM tblUsers WHERE username='$username' AND password='$hashedPassword'");
 
         if (mysqli_num_rows($checkUsers) > 0) {
             // Start a session
@@ -141,6 +151,7 @@ if (isset($_POST['view'])) {
         }
     }
 }
+
 
 ?>
 <title>Webtimekeeper - Time kept!</title>
