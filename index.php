@@ -1,6 +1,6 @@
 <?php
 include('header.php');
-include('conn.php');
+include('db.php');
 include('scripts.php');
 
 $username = $_POST['username'] ?? null;

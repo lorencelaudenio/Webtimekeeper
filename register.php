@@ -1,13 +1,16 @@
 <?php
 include('header.php');
-include('conn.php');
+include('db.php');
 include('scripts.php');
+
 
 if (isset($_POST['register'])) {
     $username = $_POST['username'] ?? null;
     $fullname = $_POST['fullname'] ?? null;
     $password = $_POST['password'] ?? null;
     $confirmpassword = $_POST['confirmpassword'] ?? null;
+    $curdate = date("Y-m-d");
+    $curtime = date("H:i:s");
 
     if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)) {
         if ($password != $confirmpassword) {
