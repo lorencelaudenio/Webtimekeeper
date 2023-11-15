@@ -11,12 +11,14 @@ $(document).ready( function () {
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
+        ],
+        paging: true,
+    scrollY: 400,
+    responsive: true,
+    order: [[0, 'desc']]
     }
     );
-    paging: true
-    scrollY: 400
-    responsive: true
+    
     
 } );
 </script>
@@ -54,10 +56,8 @@ function checkTime(i) {
 
 <script>
   $('#myModal').modal('show');
-});
 </script>
 
 <script>
   $('#myModal2').modal('show');
-});
 </script>
