@@ -119,11 +119,11 @@ if(isset($_POST['view'])) {
                         <div class='col-md-auto'>
                         <a class='' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><h4><i class='bi bi-list'></i></h4></a>
                             <div class="dropdown-menu">
-                            <a class="dropdown-item" href="about.php"><i class="bi bi-info-circle"></i> About</a>
-                            <a class="dropdown-item" href="privacy.php"><i class="bi bi-shield-check"></i> Privacy</a>
-                            <a class="dropdown-item" href="https://www.buymeacoffee.com/Webtimekeeper"><i class="bi bi-heart"></i> Support</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#about" href="about.php"><i class="bi bi-info-circle"></i> About</a>
+                            <a class="dropdown-item" data-toggle="modal" data-target="#privacy" href="privacy.php"><i class="bi bi-shield-check"></i> Privacy</a>
+                            <a class="dropdown-item" target="_blank" href="https://www.buymeacoffee.com/Webtimekeeper"><i class="bi bi-heart"></i> Support</a>
                             <div role="separator" class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="https://github.com/lorencelaudenio"><i class="bi bi-github"></i> Developer</a>
+                            <a class="dropdown-item" target='_blank' href="https://github.com/lorencelaudenio"><i class="bi bi-github"></i> Developer</a>
                             </div>
                         </div>
                     </div>
@@ -173,3 +173,4 @@ if(isset($_POST['view'])) {
     </div>
     </div>
 </section>
+<?php include('modal.php'); ?>
