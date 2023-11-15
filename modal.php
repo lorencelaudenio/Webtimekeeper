@@ -8,7 +8,7 @@
         <p><small>Our website's privacy policy ensures the protection of user information collected during the access and utilization of our services. In order to provide a seamless user experience, we may collect necessary data such as usernames and passwords for the purpose of data retrieval. By using our website, users implicitly agree to comply with our privacy policy. However, users have the option to opt-out and exit the website if they choose not to comply with these policies. We prioritize the security and confidentiality of user information and strive to maintain a transparent and trustworthy relationship with our users.</small></p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Okay</button>
       </div>
     </div>
   </div>
