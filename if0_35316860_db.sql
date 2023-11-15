@@ -2,10 +2,17 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Host: localhost
 -- Generation Time: Nov 15, 2023 at 06:05 AM
 -- Server version: 10.5.20-MariaDB
 -- PHP Version: 7.3.33
+=======
+-- Host: sql303.infinityfree.com
+-- Generation Time: Nov 10, 2023 at 04:33 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.2.22
+>>>>>>> 3d17fca6f9e20a88a481abd89f89c35e870a0083
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -83,6 +90,7 @@ INSERT INTO `lorence` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 (8, '2023-11-07', '10:49:04', '00:00:00', ''),
 (9, '2023-11-08', '15:08:15', '00:00:00', ''),
 (10, '2023-11-09', '10:14:45', '21:42:17', ''),
+<<<<<<< HEAD
 (11, '2023-11-10', '11:46:53', '19:41:06', ''),
 (12, '2023-11-13', '14:50:19', '22:00:42', ''),
 (13, '2023-11-14', '11:57:02', '16:40:32', ''),
@@ -108,6 +116,9 @@ CREATE TABLE `po` (
 
 INSERT INTO `po` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 (1, '2023-11-14', '08:42:28', '00:00:00', '');
+=======
+(11, '2023-11-10', '11:46:53', '00:00:00', '');
+>>>>>>> 3d17fca6f9e20a88a481abd89f89c35e870a0083
 
 -- --------------------------------------------------------
 
@@ -228,6 +239,7 @@ ALTER TABLE `hello`
 -- AUTO_INCREMENT for table `lorence`
 --
 ALTER TABLE `lorence`
+<<<<<<< HEAD
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
@@ -235,6 +247,9 @@ ALTER TABLE `lorence`
 --
 ALTER TABLE `po`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+>>>>>>> 3d17fca6f9e20a88a481abd89f89c35e870a0083
 
 --
 -- AUTO_INCREMENT for table `tblUsers`

@@ -2,6 +2,7 @@
 include('header.php');
 include('conn.php');
 include('scripts.php');
+include('scripts.php');
 
 $username = $_POST['username'] ?? null;
 $password = $_POST['password'] ?? null;
@@ -97,6 +98,12 @@ if(isset($_POST['view'])) {
         }
     }
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 3d17fca6f9e20a88a481abd89f89c35e870a0083
 ?>
 <title>Webtimekeeper</title>
 
