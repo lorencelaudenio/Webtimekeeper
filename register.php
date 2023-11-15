@@ -1,58 +1,41 @@
 <?php
 include('header.php');
-include('db.php');
+include('conn.php');
 include('scripts.php');
 
+$username = $_POST['username'];
+$fullname = $_POST['fullname'];
+$password = $_POST['Password'];
+$confirmpassword = $_POST['ConfirmPassword'];
 
-if (isset($_POST['register'])) {
-    $username = $_POST['username'] ?? null;
-    $fullname = $_POST['fullname'] ?? null;
-    $password = $_POST['password'] ?? null;
-    $confirmpassword = $_POST['confirmpassword'] ?? null;
-    $curdate = date("Y-m-d");
-    $curtime = date("H:i:s");
-
-    if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)) {
-        if ($password != $confirmpassword) {
-            echo "<script>alert('Passwords do not match!');</script>";
-        } else {
-            // Sanitize user input to prevent SQL injection
-            $username = mysqli_real_escape_string($conn, $username);
-            $fullname = mysqli_real_escape_string($conn, $fullname);
-            $password = mysqli_real_escape_string($conn, $password);
-
-            $searchUsername = $conn->query("SELECT * FROM tblUsers WHERE username = '$username'");
-            if ($searchUsername->num_rows > 0) {
+if(isset($_POST['register'])){
+    if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)){
+        if($password != $confirmpassword) {
+            echo "<script>alert(`Passwrod not match!`);</script>";
+        }else{
+            $searchUsername = mysqli_query($conn,"SELECT * FROM tblUsers WHERE username = '$username'");
+            if($searchUsername->num_rows > 0) {
                 echo "<script>alert('Username already registered.');</script>";
-            } else {
-                $sqladduser = $conn->query("INSERT INTO tblUsers (username, fullname, password) VALUES ('$username', '$fullname', '$password')");
+            }else{
+                $sqladduser = mysqli_query($conn,"INSERT INTO tblUsers (username, fullname, password) VALUES('$username', '$fullname', '$password')");
 
-                if ($sqladduser) {
-                    $createTable = $conn->query("
-                        CREATE TABLE $username (
-                            id int(11) AUTO_INCREMENT PRIMARY KEY,
-                            date date,
-                            timein varchar(256),
-                            timeout varchar(256),
-                            notes varchar(256)
-                        );
-                    ");
+                $createTable = $conn->query("
+                    CREATE TABLE $username (
+                        id int(11) AUTO_INCREMENT PRIMARY KEY,
+                        date date,
+                        timein varchar(256),
+                        timeout varchar(256),
+                        notes varchar(256)
+                    );
+                ");
 
-                    if ($createTable) {
-                        echo "<script>alert('User created successfully');</script>";
-                    } else {
-                        echo "<script>alert('Failed to create user table.');</script>";
-                    }
-                } else {
-                    echo "<script>alert('Failed to add user to tblUsers.');</script>";
-                }
+                echo "<script>alert('User created successfully');</script>";
             }
         }
-    } else {
+    }else{
         echo "<script>alert('All fields required.');</script>";
     }
 }
-
 ?>
 
 <title>Webtimekeeper - Registration</title>
@@ -80,14 +63,14 @@ if (isset($_POST['register'])) {
                 
 
                 <div class="input-group mb-3">
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
+                    <input type="password" name="Password" id="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="bi bi-eye" onclick="ShowPass()"></i></span>
                     </div>
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="password" name="confirmpassword" id="ConfirmPassword" class="form-control" placeholder="Repeat your password" aria-label="Confirm password" aria-describedby="basic-addon2" required>
+                    <input type="password" name="ConfirmPassword" id="ConfirmPassword" class="form-control" placeholder="Repeat your password" aria-label="Confirm password" aria-describedby="basic-addon2" required>
                     <div class="input-group-append">
                         <span class="input-group-text" id="basic-addon2"><i class="bi bi-eye" onclick="ShowPass()"></i></span>
                     </div>
@@ -95,7 +78,7 @@ if (isset($_POST['register'])) {
 
                 <div class="form-check-inline mb-3">
                     <label class="form-check-label">
-                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="#" data-toggle="modal" data-target="#myModal">Privacy Policy</a>
+                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a href="privacy.php">Privacy Policy</a>
                     </label>
                 </div>
                 
@@ -110,9 +93,4 @@ if (isset($_POST['register'])) {
     </div>
     </div>
 </section>
-<?php 
-include('footer.php');
-include('modal.php');
-?>
-
-<html>
+<?php include('footer.php');?>

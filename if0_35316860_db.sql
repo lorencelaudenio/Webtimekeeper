@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 14, 2023 at 10:11 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Host: localhost
+-- Generation Time: Nov 15, 2023 at 06:05 AM
+-- Server version: 10.5.20-MariaDB
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `if0_35316860_db`
+-- Database: `id20750947_timein`
 --
 
 -- --------------------------------------------------------
@@ -41,6 +41,20 @@ CREATE TABLE `guest` (
 
 INSERT INTO `guest` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 (1, '2023-10-28', '11:07:11', '11:59:52', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hello`
+--
+
+CREATE TABLE `hello` (
+  `id` int(11) NOT NULL,
+  `date` date DEFAULT NULL,
+  `timein` varchar(256) DEFAULT NULL,
+  `timeout` varchar(256) DEFAULT NULL,
+  `notes` varchar(256) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -71,7 +85,8 @@ INSERT INTO `lorence` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 (10, '2023-11-09', '10:14:45', '21:42:17', ''),
 (11, '2023-11-10', '11:46:53', '19:41:06', ''),
 (12, '2023-11-13', '14:50:19', '22:00:42', ''),
-(13, '2023-11-14', '11:57:02', '16:40:32', '');
+(13, '2023-11-14', '11:57:02', '16:40:32', ''),
+(14, '2023-11-15', '14:04:22', '00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -97,10 +112,10 @@ INSERT INTO `po` (`id`, `date`, `timein`, `timeout`, `notes`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblusers`
+-- Table structure for table `tblUsers`
 --
 
-CREATE TABLE `tblusers` (
+CREATE TABLE `tblUsers` (
   `id` int(11) NOT NULL,
   `username` varchar(256) NOT NULL,
   `fullname` varchar(256) NOT NULL,
@@ -108,15 +123,16 @@ CREATE TABLE `tblusers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `tblusers`
+-- Dumping data for table `tblUsers`
 --
 
-INSERT INTO `tblusers` (`id`, `username`, `fullname`, `password`) VALUES
+INSERT INTO `tblUsers` (`id`, `username`, `fullname`, `password`) VALUES
 (25, 'lorence', 'lorence', '1234'),
 (26, 'guest', 'guest', '1234'),
 (27, 'po', 'patry', '1234'),
 (28, 'user', 'user', '1234'),
-(29, 'user2', 'user2', '1234');
+(29, 'user2', 'user2', '1234'),
+(30, 'hello', 'hello', '1234');
 
 -- --------------------------------------------------------
 
@@ -157,6 +173,12 @@ ALTER TABLE `guest`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `hello`
+--
+ALTER TABLE `hello`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `lorence`
 --
 ALTER TABLE `lorence`
@@ -169,9 +191,9 @@ ALTER TABLE `po`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblusers`
+-- Indexes for table `tblUsers`
 --
-ALTER TABLE `tblusers`
+ALTER TABLE `tblUsers`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -197,10 +219,16 @@ ALTER TABLE `guest`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `hello`
+--
+ALTER TABLE `hello`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `lorence`
 --
 ALTER TABLE `lorence`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `po`
@@ -209,10 +237,10 @@ ALTER TABLE `po`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tblusers`
+-- AUTO_INCREMENT for table `tblUsers`
 --
-ALTER TABLE `tblusers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+ALTER TABLE `tblUsers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `user`

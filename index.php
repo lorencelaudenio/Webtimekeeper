@@ -1,6 +1,6 @@
 <?php
 include('header.php');
-include('db.php');
+include('conn.php');
 include('scripts.php');
 
 $username = $_POST['username'] ?? null;
@@ -15,135 +15,90 @@ $curdate = date("Y-m-d");
 $curtime = date("H:i:s");
 $timezone = date_default_timezone_set("Asia/Manila");
 
-if (isset($_POST['timein'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $curdate = date("Y-m-d");
-    $curtime = date("H:i:s");
-    $notes = ""; // Make sure to define $notes if it's not coming from the form
-
-    if ($username == '' || $password == '') {
+if(isset($_POST['timein'])) {
+    if($username == '' && $password == ''){
         echo "<script>alert('All fields required.');</script>";
-    } else {
-        // Sanitize user input to prevent SQL injection
-        $username = mysqli_real_escape_string($conn, $username);
-        $password = mysqli_real_escape_string($conn, $password);
-
-        $checkUsers = $conn->query("SELECT * FROM tblUsers WHERE username='$username' AND password='$password'");
-        
-        if (mysqli_num_rows($checkUsers) > 0) {
+    }else{
+        $checkUsers = $conn->query("SELECT * FROM tblUsers where username='$username' && password='$password'"); //dapat talaga may '' ung variable
+        if (mysqli_num_rows($checkUsers) > 0){
             $checkDate = $conn->query("SELECT * FROM $username WHERE date = '$curdate'");
-            
-            if (mysqli_num_rows($checkDate) > 0) {
+
+            if (mysqli_num_rows($checkDate) != 0){
                 $datelogassoc = mysqli_fetch_assoc($checkDate);
                 $dateassoc = $datelogassoc['date'];
                 $timeinassoc = $datelogassoc['timein'];
                 $timeoutassoc = $datelogassoc['timeout'];
-                
-                if (!empty($timeinassoc)) {
-                    if (!empty($timeoutassoc)) {
+
+                if(!empty($timeinassoc)){
+                    if(!empty($timeoutassoc)){
                         echo "
                             <script>
                             alert('You are already logged in and logged out today!');
                             window.location.href = 'view.php';
                             </script>
                         ";
-                    } else {
+                        $timein = "disabled";
+                        $timeout = "disabled";
+                    }else{
                         echo "<script>alert('You are already logged in. Please logout.');</script>";
+                        $timein = "disabled";
                     }
-                } else {
-                    // Update the existing record with a timein value
-                    $update = $conn->query("UPDATE $username SET timein = '$curtime' WHERE date = '$curdate'");
-                    echo "<script>alert('Successfully logged in!');</script>";
+                }else{
+                    $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
+                    echo "<script>alert('Succesfully logged in!');</script>";
                 }
-            } else {
-                $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
-                echo "<script>alert('Successfully logged in!');</script>";
+            }else{
+               $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
+                echo "<script>alert('Succesfully logged in!');</script>"; 
             }
-        } else {
-            echo "<script>alert('Invalid username or password. Please try again.');</script>";
         }
     }
 }
 
-
-if (isset($_POST['timeout'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $curdate = date("Y-m-d");
-    $curtime = date("H:i:s");
-    $notes = ""; // Make sure to define $notes if it's not coming from the form
-
-    if ($username == '' || $password == '') {
+if(isset($_POST['timeout'])) {
+    if($username == '' && $password == ''){
         echo "<script>alert('All fields required.');</script>";
-    } else {
-        // Sanitize user input to prevent SQL injection
-        $username = mysqli_real_escape_string($conn, $username);
-        $password = mysqli_real_escape_string($conn, $password);
-
-        $checkUsers = $conn->query("SELECT * FROM `tblUsers` WHERE `username`='$username' AND `password`='$password'");
-
-        if (mysqli_num_rows($checkUsers) > 0) {
+    }else{
+        $checkUsers = $conn->query("SELECT * FROM `tblUsers` where `username`='$username' && `password`='$password'");
+        if (mysqli_num_rows($checkUsers) > 0){
             $checkDate = $conn->query("SELECT * FROM $username WHERE `date` = '$curdate'");
 
-            if (mysqli_num_rows($checkDate) > 0) {
+            if (mysqli_num_rows($checkDate) != 0){
                 $datelogassoc = mysqli_fetch_assoc($checkDate);
                 $timeoutassoc = $datelogassoc['timeout'];
 
-                if ($timeoutassoc != '00:00:00') {
+                if($timeoutassoc != '00:00:00'){
                     echo "
                         <script>
                             alert('You are already logged out!');
                             window.location.href = 'view.php';
                         </script>
                     ";
-                } else {
-                    // Update the existing record with a timeout value and notes
-                    $update = $conn->query("UPDATE $username SET `timeout`='$curtime', `notes`='$notes' WHERE `date`='$curdate'");
-                    echo "<script>alert('Successfully logged out!');</script>";
+                    $timeout = "disabled";
+                }else{
+                    $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `notes`='$notes' WHERE `date`='$curdate'");
+                    echo "<script>alert(`Succesfully logged out!`);</script>";
                 }
-            } else {
-                echo "<script>alert('You have not logged in today.');</script>";
             }
-        } else {
-            echo "<script>alert('Invalid username or password. Please try again.');</script>";
         }
     }
 }
 
 
-
-if (isset($_POST['view'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    if ($username == '' || $password == '') {
+if(isset($_POST['view'])) {
+    if($username == '' && $password == ''){
         echo "<script>alert('All fields required.');</script>";
-    } else {
-        // Sanitize user input to prevent SQL injection
-        $username = mysqli_real_escape_string($conn, $username);
-        $password = mysqli_real_escape_string($conn, $password);
-
-        $checkUsers = $conn->query("SELECT * FROM tblUsers WHERE username='$username' AND password='$password'");
-
-        if (mysqli_num_rows($checkUsers) > 0) {
-            // Start a session
+    }else{
+        $checkUsers = $conn->query("SELECT * FROM tblUsers where username='$username' && password='$password'");
+        if (mysqli_num_rows($checkUsers) > 0){
             session_start();
-
-            // Store the username in a session variable for later use
             $_SESSION['username'] = $username;
-
-            // Redirect to the 'view.php' page
-            header("location: view.php");
-            exit(); // Terminate the script to ensure a clean redirect
-        } else {
-            echo "<script>alert('Invalid username or password. Please try again.');</script>";
+            exit(header("location: view.php"));
         }
     }
 }
-
 ?>
-<title>Webtimekeeper - Time kept!</title>
+<title>Webtimekeeper</title>
 
 
 
@@ -154,7 +109,7 @@ if (isset($_POST['view'])) {
         <div class="card-body p-4 text-center">
             <form class="col-12" action="" method="post">
                 <div class="text-center">
-                    <h4 class="mb-3">Webtimekeeper <i class="bi bi-clock"></i>  </h4> 
+                    <h4 class="mb-3">Webtimekeeper <i class="bi bi-clock"></i>  </h4>
                 </div>
 
                 <hr>
@@ -164,7 +119,7 @@ if (isset($_POST['view'])) {
                 </div>
 
                 <div >
-                    <h1 id="txt" class="display-4 font-weight-bold"></h1>
+                    <h1 id="txt" class="display-4"></h1>
                 </div>
 
                 <div>
@@ -190,7 +145,6 @@ if (isset($_POST['view'])) {
                     <input type="submit" name="timein" class="btn btn-success" value="Timein" <?php echo $timein;?>/>
                     <input type="submit" name="timeout" class="btn btn-primary" value="Timeout" <?php echo $timeout;?>/>
                     <input type="submit" name="view" class="btn btn-info" value="View"/>
-
                 </div>
 
                 <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
@@ -202,8 +156,4 @@ if (isset($_POST['view'])) {
     </div>
     </div>
 </section>
-<?php 
-include('footer.php');
-include('modal.php');
-?>
-
+<?php include('footer.php');?>

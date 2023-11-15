@@ -1,7 +1,7 @@
 <?php
 error_reporting (E_ALL ^ E_NOTICE); //para no undefined error
 include("header.php");
-include("db.php");
+include("conn.php");
 include("scripts.php");
 
 session_start();
