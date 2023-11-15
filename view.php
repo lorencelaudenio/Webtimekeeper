@@ -11,13 +11,30 @@ $view = $conn->query("SELECT * FROM $username ORDER BY id DESC");
 
 echo "
 
-    <section class='vh-100 ' style='background-color: hsl(0, 0%, 96%)'>
+    <section class='vh-100' style='background-color: hsl(0, 0%, 96%)'>
         <div class='container py-3 h-100  col-md-4 rounded'>
             <div class='row d-flex  justify-content-center align-items-center h-100'>
                 <div class='card   shadow ' style='border-radius: 1rem;'>
                     <div class='card-body p-4 text-center'>
-                        <div class='text-center'>
-                            <h4 class='mb-3'>$username's Webtimekeeper <i class='bi bi-clock'></i>  </h4>
+                        <div class='text-center '>
+                            <div class='row align-items-center'>
+                            <div class='col-md-auto'>
+                                <h4><a href='/index.php'><i class='bi bi-house'></i></a></h4>
+                            </div>
+                            <div class='col-md-auto'>
+                                <h4 class='mb-3'><i class='bi bi-person-add'></i> Webtimekeeper   </h4>
+                            </div>
+                            <div class='col-md-auto'>
+                                <a class='' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><h4><i class='bi bi-list'></i></h4></a>
+                                <div class='dropdown-menu'>
+                                <a class='dropdown-item' href='about.php'><i class='bi bi-info-circle'></i> About</a>
+                                <a class='dropdown-item' href='privacy.php'><i class='bi bi-shield-check'></i> Privacy</a>
+                                <a class='dropdown-item' href='https://www.buymeacoffee.com/Webtimekeeper'><i class='bi bi-heart'></i> Support</a>
+                                <div role='separator' class='dropdown-divider'></div>
+                                <a class='dropdown-item' href='https://github.com/lorencelaudenio'><i class='bi bi-github'></i> Developer</a>
+                                </div>
+                            </div>
+                            </div>
                         </div>
 
                         <hr>
@@ -59,7 +76,6 @@ while($row = mysqli_fetch_assoc($query ?? null)) {
         </div>
     </section>
 
-<?php include('footer.php');?>
 <title><?php echo $username = $_SESSION['username'];?>'s Webtimekeeper</title>
 
 

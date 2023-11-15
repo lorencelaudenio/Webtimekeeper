@@ -49,7 +49,24 @@ if(isset($_POST['register'])){
         <div class="card-body p-4 text-center">
             <form class="col-12" method="POST" action="register.php">
                 <div class="text-center">
-                    <h4 class="mb-3">Webtimekeeper <i class="bi bi-clock"></i> Registration </h4>
+                    <div class='row align-items-center'>
+                        <div class='col-md-auto'>
+                            <h4><a href='/index.php'><i class='bi bi-house'></i></a></h4>
+                        </div>
+                        <div class='col-md-auto'>
+                            <h4 class='mb-3'><i class="bi bi-person-add"></i> Webtimekeeper   </h4>
+                        </div>
+                        <div class='col-md-auto'>
+                        <a class='' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><h4><i class='bi bi-list'></i></h4></a>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" href="about.php"><i class="bi bi-info-circle"></i> About</a>
+                            <a class="dropdown-item" href="privacy.php"><i class="bi bi-shield-check"></i> Privacy</a>
+                            <a class="dropdown-item" href="https://www.buymeacoffee.com/Webtimekeeper"><i class="bi bi-heart"></i> Support</a>
+                            <div role="separator" class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="https://github.com/lorencelaudenio"><i class="bi bi-github"></i> Developer</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-group mt-3">
@@ -93,4 +110,3 @@ if(isset($_POST['register'])){
     </div>
     </div>
 </section>
-<?php include('footer.php');?>
