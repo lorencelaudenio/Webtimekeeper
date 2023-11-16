@@ -15,9 +15,29 @@ $curdate = date("Y-m-d");
 $curtime = date("H:i:s");
 $timezone = date_default_timezone_set("Asia/Manila");
 
+echo '
+<section class="vh-100 " style="background-color: hsl(0, 0%, 96%)">
+    <div class="container py-3 h-100  col-md-4 rounded">
+    <div class="row d-flex  justify-content-center align-items-center h-100">
+    <div class="card   shadow " style="border-radius: 1rem;">
+        <div class="card-body p-4 text-center" class="d-flex justify-content-center align-items-center" style="min-height: 200px;">
+';
+
 if(isset($_POST['timein'])) {
     if($username == '' && $password == ''){
-        echo "<script>alert('All fields required.');</script>";
+        // echo "<script>alert('All fields required.');</script>";
+        echo "
+            <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                    <div class='toast-body text-center d-flex'>
+                        <span><i class='bi bi-check-circle'></i></span>
+                        <div class='d-flex flex-grow-1 align-items-center'>
+                            <span class='fw-semibold'>All fields required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ";
     }else{
         $checkUsers = $conn->query("SELECT * FROM tblUsers where username='$username' && password='$password'"); //dapat talaga may '' ung variable
         if (mysqli_num_rows($checkUsers) > 0){
@@ -31,41 +51,72 @@ if(isset($_POST['timein'])) {
 
                 if(!empty($timeinassoc)){
                     if(!empty($timeoutassoc)){
+                        // echo "
+                        //     <script>
+                        //     alert('You are already logged in and logged out today!');
+                        //     window.location.href = 'view.php';
+                        //     </script>
+                        // ";
                         echo "
-                            <script>
-                            alert('You are already logged in and logged out today!');
-                            window.location.href = 'view.php';
-                            </script>
+                            <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                    <div class='toast-body text-center d-flex'>
+                                        <span><i class='bi bi-check-circle'></i></span>
+                                        <div class='d-flex flex-grow-1 align-items-center'>
+                                            <span class='fw-semibold'>You are already logged in and logged out today!</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         ";
                         $timein = "disabled";
                         $timeout = "disabled";
                     }else{
-                        echo "<script>alert('You are already logged in. Please logout.');</script>";
+                        // echo "<script>alert('You are already logged in. Please logout.');</script>";
+                        echo "
+                            <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                    <div class='toast-body text-center d-flex'>
+                                        <span><i class='bi bi-check-circle'></i></span>
+                                        <div class='d-flex flex-grow-1 align-items-center'>
+                                            <span class='fw-semibold'>You are already logged in. Please logout.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ";
                         $timein = "disabled";
                     }
                 }else{
                     $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
                     // echo "<script>alert('Succesfully logged in!');</script>";
                     echo "
-                    
-                    <div role='alert' class='toast' data-autohide='false' style='position: absolute; top: 10; right: 10;'>
-    
-    <div class='toast-body text-center'>
-      Some text inside the toast body
-    </div>
-  </div>
+                        <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                <div class='toast-body text-center d-flex'>
+                                    <span><i class='bi bi-check-circle'></i></span>
+                                    <div class='d-flex flex-grow-1 align-items-center'>
+                                        <span class='fw-semibold'>Successfully logged in!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     ";
                 }
             }else{
                $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
                 // echo "<script>alert('Succesfully logged in!');</script>"; 
                 echo "
-                <div role='alert' class='toast' data-autohide='false' style='position: absolute; top: 10; right: 10;'>
-    
-    <div class='toast-body text-center'>
-      Some text inside the toast body
-    </div>
-  </div>
+                    <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                        <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                            <div class='toast-body text-center d-flex'>
+                                <span><i class='bi bi-check-circle'></i></span>
+                                <div class='d-flex flex-grow-1 align-items-center'>
+                                    <span class='fw-semibold'>Successfully logged in!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 "; 
             }
         }
@@ -74,7 +125,19 @@ if(isset($_POST['timein'])) {
 
 if(isset($_POST['timeout'])) {
     if($username == '' && $password == ''){
-        echo "<script>alert('All fields required.');</script>";
+        // echo "<script>alert('All fields required.');</script>";
+        echo "
+            <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                    <div class='toast-body text-center d-flex'>
+                        <span><i class='bi bi-check-circle'></i></span>
+                        <div class='d-flex flex-grow-1 align-items-center'>
+                            <span class='fw-semibold'>All fields required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ";
     }else{
         $checkUsers = $conn->query("SELECT * FROM `tblUsers` where `username`='$username' && `password`='$password'");
         if (mysqli_num_rows($checkUsers) > 0){
@@ -85,16 +148,44 @@ if(isset($_POST['timeout'])) {
                 $timeoutassoc = $datelogassoc['timeout'];
 
                 if($timeoutassoc != '00:00:00'){
+                    // echo "
+                    //     <script>
+                    //         alert('You are already logged out!');
+                    //         window.location.href = 'view.php';
+                    //     </script>
+                    // ";
                     echo "
+                        <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                <div class='toast-body text-center d-flex'>
+                                    <span><i class='bi bi-check-circle'></i></span>
+                                    <div class='d-flex flex-grow-1 align-items-center'>
+                                        <span class='fw-semibold'>You are already logged out!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <script>
-                            alert('You are already logged out!');
                             window.location.href = 'view.php';
                         </script>
                     ";
                     $timeout = "disabled";
                 }else{
                     $Timeout = $conn->query("UPDATE $username SET `timeout`='$curtime', `notes`='$notes' WHERE `date`='$curdate'");
-                    echo "<script>alert(`Succesfully logged out!`);</script>";
+                    // echo "<script>alert(`Succesfully logged out!`);</script>";
+                    echo "
+                        <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                <div class='toast-body text-center d-flex'>
+                                    <span><i class='bi bi-check-circle'></i></span>
+                                    <div class='d-flex flex-grow-1 align-items-center'>
+                                        <span class='fw-semibold'>Succesfully logged out!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ";
                 }
             }
         }
@@ -104,7 +195,19 @@ if(isset($_POST['timeout'])) {
 
 if(isset($_POST['view'])) {
     if($username == '' && $password == ''){
-        echo "<script>alert('All fields required.');</script>";
+        // echo "<script>alert('All fields required.');</script>";
+        echo "
+            <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                    <div class='toast-body text-center d-flex'>
+                        <span><i class='bi bi-check-circle'></i></span>
+                        <div class='d-flex flex-grow-1 align-items-center'>
+                            <span class='fw-semibold'>All fields required.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        ";
     }else{
         $checkUsers = $conn->query("SELECT * FROM tblUsers where username='$username' && password='$password'");
         if (mysqli_num_rows($checkUsers) > 0){
@@ -119,11 +222,9 @@ if(isset($_POST['view'])) {
 
 
 
-<section class="vh-100 " style="background-color: hsl(0, 0%, 96%)">
-    <div class="container py-3 h-100  col-md-4 rounded">
-    <div class="row d-flex  justify-content-center align-items-center h-100">
-    <div class="card   shadow " style="border-radius: 1rem;">
-        <div class="card-body p-4 text-center">
+
+   
+    
             <form class="col-12" action="" method="post">
                 <div class="text-center">
                     <div class='row align-items-center'>
