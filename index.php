@@ -78,7 +78,7 @@ if(isset($_POST['timein'])) {
                                 <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
                                     <div class='toast-body text-center d-flex'>
                                         <span><i class='bi bi-check-circle'></i></span>
-                                        <div class='d-flex flex-grow-1 align-items-center'>
+                                        <div class='d-flex align-items-center'>
                                             <span class='fw-semibold'>You are already logged in. Please logout.</span>
                                         </div>
                                     </div>
