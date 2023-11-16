@@ -45,11 +45,28 @@ if(isset($_POST['timein'])) {
                     }
                 }else{
                     $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
-                    echo "<script>alert('Succesfully logged in!');</script>";
+                    // echo "<script>alert('Succesfully logged in!');</script>";
+                    echo "
+                    
+                    <div role='alert' class='toast' data-autohide='false' style='position: absolute; top: 10; right: 10;'>
+    
+    <div class='toast-body text-center'>
+      Some text inside the toast body
+    </div>
+  </div>
+                    ";
                 }
             }else{
                $insert = $conn->query("INSERT INTO $username (`date`, `timein`, `timeout`, `notes`) VALUES ('$curdate', '$curtime', '00:00:00', '$notes')");
-                echo "<script>alert('Succesfully logged in!');</script>"; 
+                // echo "<script>alert('Succesfully logged in!');</script>"; 
+                echo "
+                <div role='alert' class='toast' data-autohide='false' style='position: absolute; top: 10; right: 10;'>
+    
+    <div class='toast-body text-center'>
+      Some text inside the toast body
+    </div>
+  </div>
+                "; 
             }
         }
     }
