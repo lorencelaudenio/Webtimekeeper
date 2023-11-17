@@ -18,14 +18,14 @@ if(isset($_POST['register'])){
                 echo "
                 <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
                     <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px; background-color: hsl(0, 0%, 96%);'>
-                        <div class='toast-header'>
+                        <div class='toast-header d-flex'>
+                            <span><i class='bi bi-clock'> </i> </span>
                             <strong class='mr-auto'>Oh no!</strong>
                             <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
                             <span aria-hidden='true'>&times;</span>
                             </button>
                         </div>
                         <div class='toast-body text-center d-flex'>
-                            <span><i class='bi bi-check-circle'></i></span>
                             <div class='d-flex flex-grow-1 align-items-center'>
                                 <span class='fw-semibold'>User already registered.</span>
                             </div>
@@ -49,14 +49,14 @@ if(isset($_POST['register'])){
                 echo "
                 <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
                     <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px; background-color: hsl(0, 0%, 96%);'>
-                        <div class='toast-header'>
+                        <div class='toast-header d-flex'>
+                            <span><i class='bi bi-clock'> </i> </span>
                             <strong class='mr-auto'>Success!</strong>
                             <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
                             <span aria-hidden='true'>&times;</span>
                             </button>
                         </div>
                         <div class='toast-body text-center d-flex'>
-                            <span><i class='bi bi-check-circle'></i></span>
                             <div class='d-flex flex-grow-1 align-items-center'>
                                 <span class='fw-semibold'>User successfully created.</span>
                             </div>
@@ -133,7 +133,7 @@ if(isset($_POST['register'])){
                     </label>
                 </div>
                 
-                <input type="submit" name="register" id="register" value="Register" style="text-decoration: none;" class="btn border btn-lg btn-block rounded-pill link-dark" disabled>
+                <input type="submit" name="register" id="register" value="Register" style="text-decoration: none; background-color: hsl(0, 0%, 96%);" class="btn border btn-lg btn-block rounded-pill link-dark" disabled>
 
                 <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="index.php"
                     class=""><u>Timein here</u></a>
