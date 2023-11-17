@@ -22,6 +22,7 @@ $(document).ready( function () {
     scrollY: 400,
     responsive: true,
     order: [[0, 'desc']]
+    "autoWidth": false
     }
     );
     
