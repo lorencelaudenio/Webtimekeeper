@@ -3,10 +3,10 @@ include('header.php');
 include('conn.php');
 include('scripts.php');
 
-$username = $_POST['username'];
-$fullname = $_POST['fullname'];
-$password = $_POST['Password'];
-$confirmpassword = $_POST['ConfirmPassword'];
+$username = $_POST['username']?? null;
+$fullname = $_POST['fullname']?? null;
+$password = $_POST['Password']?? null;
+$confirmpassword = $_POST['ConfirmPassword']?? null;
 
 if(isset($_POST['register'])){
     if (!empty($username) && !empty($fullname) && !empty($password) && !empty($confirmpassword)){
