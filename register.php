@@ -133,7 +133,7 @@ if(isset($_POST['register'])){
                     </label>
                 </div>
                 
-                <input type="submit" name="register" id="register" value="Register" class="btn btn-primary btn-lg btn-block" disabled>
+                <input type="submit" name="register" id="register" value="Register" style="text-decoration: none;" class="btn text-primary border btn-lg btn-block rounded-pill" disabled>
 
                 <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="index.php"
                     class=""><u>Timein here</u></a>
