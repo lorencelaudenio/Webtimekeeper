@@ -337,8 +337,8 @@ if(isset($_POST['view'])) {
                     <input type="submit" name="view" class="btn link-dark border " style="background-color: hsl(0, 0%, 96%)" value="View"/>
                 </div>
 
-                <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
-                    class=""><u>Register here</u></a>
+                <p class="text-center text-muted mt-3 mb-0">New to Webtimekeeper?  <a href="register.php"
+                    class=""><u>Join now</u></a>
                 </p>
             </form>   
         </div>
