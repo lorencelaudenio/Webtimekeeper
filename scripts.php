@@ -21,8 +21,8 @@ $(document).ready( function () {
         paging: true,
     scrollY: 400,
     responsive: true,
-    order: [[0, 'desc']]
-    "autoWidth": false
+    order: [[0, 'desc']],
+    autoWidth: false
     }
     );
     
