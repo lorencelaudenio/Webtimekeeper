@@ -331,9 +331,9 @@ if(isset($_POST['view'])) {
                 </div>
                 
                 <div class="btn-group btn-group-lg rounded-pill" role="group" aria-label="Basic example">
-                    <input type="submit" name="timein" class="btn text-primary btn-outline-secondary" style="background-color: hsl(0, 0%, 96%)" value="Timein" <?php echo $timein;?>/>
-                    <input type="submit" name="timeout" class="btn text-primary btn-outline-secondary" style="background-color: hsl(0, 0%, 96%)" value="Timeout" <?php echo $timeout;?>/>
-                    <input type="submit" name="view" class="btn text-primary btn-outline-secondary " style="background-color: hsl(0, 0%, 96%)" value="View"/>
+                    <input type="submit" name="timein" class="btn text-primary border" style="background-color: hsl(0, 0%, 96%)" value="Timein" <?php echo $timein;?>/>
+                    <input type="submit" name="timeout" class="btn text-primary border" style="background-color: hsl(0, 0%, 96%)" value="Timeout" <?php echo $timeout;?>/>
+                    <input type="submit" name="view" class="btn text-primary border " style="background-color: hsl(0, 0%, 96%)" value="View"/>
                 </div>
 
                 <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
