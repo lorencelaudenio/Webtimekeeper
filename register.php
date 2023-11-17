@@ -102,16 +102,13 @@ if(isset($_POST['register'])){
                         </div>
                     </div>
                 </div>
-
-                <div class="form-group mt-3">
-                    <input type="text" name="fullname" class="form-control" id="fullname" aria-describedby="fullnameHelp" placeholder="Your Fullname" required>
-                </div>
-
                 <div class="form-group mt-3">
                     <input type="text" name="username" class="form-control" id="username" aria-describedby="usernameHelp" placeholder="Your Username" required>
                 </div>
 
-                
+                <div class="form-group mt-3">
+                    <input type="text" name="fullname" class="form-control" id="fullname" aria-describedby="fullnameHelp" placeholder="Your Fullname" required>
+                </div>
 
                 <div class="input-group mb-3">
                     <input type="password" name="Password" id="password" class="form-control" placeholder="Enter password" aria-label="Password" aria-describedby="basic-addon2" required>
