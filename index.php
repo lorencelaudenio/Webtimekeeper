@@ -303,15 +303,15 @@ if(isset($_POST['view'])) {
 
                 <hr>
 
-                <div style="margin-bottom: -15px;">
+                <div style="margin-bottom: -20px;">
                     <?php echo date_default_timezone_get() ;?> <i class="bi bi-geo-alt"></i>
                 </div>
 
-                <div class="" style="margin-bottom: -15px;">
+                <div class="" style="margin-bottom: -20px;">
                     <h1 id="txt" class="display-1 font-weight-bold"></h1>
                 </div>
 
-                <div class="" style="margin-top: -15px;">
+                <div class="" style="margin-top: -20px;">
                     <?php echo $date= date('l, M j') ;?>
                 </div>
 
