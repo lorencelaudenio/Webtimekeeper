@@ -308,7 +308,7 @@ if(isset($_POST['view'])) {
                 </div>
 
                 <div class="" style="margin-bottom: -15px;">
-                    <h1 id="txt" class="display-4 font-weight-bold"></h1>
+                    <h1 id="txt" class="display-1 font-weight-bold"></h1>
                 </div>
 
                 <div class="" style="margin-top: -15px;">

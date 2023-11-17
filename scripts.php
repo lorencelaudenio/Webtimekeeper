@@ -51,7 +51,8 @@ function startTime() {
   m = checkTime(m);
   s = checkTime(s);
   // document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s + " " + ampm;
-  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  // document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  document.getElementById('txt').innerHTML =  h + ":" + m;
   setTimeout(startTime, 1000);
 }
 
