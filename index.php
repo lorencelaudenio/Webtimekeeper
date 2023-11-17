@@ -65,7 +65,7 @@ if(isset($_POST['timein'])) {
                         // ";
                         echo "
                             <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                                     <div class='toast-header'>
                                         <strong class='mr-auto'>Oh no!</strong>
                                         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -87,7 +87,7 @@ if(isset($_POST['timein'])) {
                         // echo "<script>alert('You are already logged in. Please logout.');</script>";
                         echo "
                             <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                                     <div class='toast-header'>
                                         <strong class='mr-auto'>Oh no!</strong>
                                         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -110,7 +110,7 @@ if(isset($_POST['timein'])) {
                     // echo "<script>alert('Succesfully logged in!');</script>";
                     echo "
                         <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                                 <div class='toast-header'>
                                     <strong class='mr-auto'>Success!</strong>
                                     <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -132,7 +132,7 @@ if(isset($_POST['timein'])) {
                 // echo "<script>alert('Succesfully logged in!');</script>"; 
                 echo "
                     <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                        <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                        <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                             <div class='toast-header'>
                                 <strong class='mr-auto'>Success!</strong>
                                 <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -158,7 +158,7 @@ if(isset($_POST['timeout'])) {
         // echo "<script>alert('All fields required.');</script>";
         echo "
             <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                     <div class='toast-header'>
                         <strong class='mr-auto'>Oh no!</strong>
                         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -192,7 +192,7 @@ if(isset($_POST['timeout'])) {
                     // ";
                     echo "
                         <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                                 <div class='toast-header'>
                                     <strong class='mr-auto'>Oh no!</strong>
                                     <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -218,7 +218,7 @@ if(isset($_POST['timeout'])) {
                     // echo "<script>alert(`Succesfully logged out!`);</script>";
                     echo "
                         <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                            <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                                 <div class='toast-header'>
                                     <strong class='mr-auto'>Success!</strong>
                                     <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
@@ -246,7 +246,7 @@ if(isset($_POST['view'])) {
         // echo "<script>alert('All fields required.');</script>";
         echo "
             <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
-                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%);'>
+                <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px;'>
                     <div class='toast-header'>
                         <strong class='mr-auto'>Oh no!</strong>
                         <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
