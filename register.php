@@ -126,7 +126,7 @@ if(isset($_POST['register'])){
 
                 <div class="form-check-inline mb-3">
                     <label class="form-check-label">
-                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value="">I agree all statements in <a data-toggle='modal' data-target='#privacy' href="privacy.php">Privacy Policy</a>
+                        <input onchange="document.getElementById('register').disabled = !this.checked;" type="checkbox" class="form-check-input" value=""><small>I agree all statements in <a data-toggle='modal' data-target='#privacy' href="privacy.php">Privacy Policy</a></small>
                     </label>
                 </div>
                 
