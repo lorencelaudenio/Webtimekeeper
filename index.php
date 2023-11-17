@@ -283,7 +283,7 @@ if(isset($_POST['view'])) {
                 <div class="text-center">
                     <div class='row align-items-center'>
                         <div class='col-md-auto'>
-                            <h4><i class='bi bi-clock'></i></h4>
+                            <a href='index.php'><h4><i class='bi bi-clock'></i></h4></a>
                         </div>
                         <div class='col-md-auto'>
                             <h4 class='mb-3'>Webtimekeeper</h4>
@@ -330,7 +330,7 @@ if(isset($_POST['view'])) {
                     <input type="text" name="notes" id="notes" class="form-control" placeholder="Enter notes" aria-label="Enter notes" aria-describedby="basic-addon2">
                 </div>
                 
-                <div class="btn-group btn-group-lg " role="group" aria-label="Basic example">
+                <div class="btn-group btn-group-lg rounded-pill" role="group" aria-label="Basic example">
                     <input type="submit" name="timein" class="btn text-primary btn-outline-secondary" style="background-color: hsl(0, 0%, 96%)" value="Timein" <?php echo $timein;?>/>
                     <input type="submit" name="timeout" class="btn text-primary btn-outline-secondary" style="background-color: hsl(0, 0%, 96%)" value="Timeout" <?php echo $timeout;?>/>
                     <input type="submit" name="view" class="btn text-primary btn-outline-secondary " style="background-color: hsl(0, 0%, 96%)" value="View"/>
