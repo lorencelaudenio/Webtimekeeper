@@ -132,7 +132,7 @@ if(isset($_POST['register'])){
                 
                 <input type="submit" name="register" id="register" value="Register" style="text-decoration: none; background-color: hsl(0, 0%, 96%);" class="btn border btn-lg btn-block rounded-pill link-dark" disabled>
 
-                <p class="text-center text-muted mt-3 mb-0">Have already an account? <a href="index.php"
+                <p class="text-center text-muted mt-3 mb-0">Already on Webtimekeeper? <a href="index.php"
                     class=""><u>Timein here</u></a>
                 </p>
             </form>   
