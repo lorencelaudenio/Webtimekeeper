@@ -1,7 +1,7 @@
 <div class="modal fade bd-example-modal-s" tabindex="-1" role="dialog" id="privacy">
   <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
     <div class="modal-content">
-      <div class="modal-header text-center">
+      <div class="modal-header text-center" style="border-radius: 15px;">
         <h5 class="modal-title">Webtimekeeper <i class="bi bi-clock"></i> Privacy Policy</h5>
       </div>
       <div class="modal-body">
@@ -16,7 +16,7 @@
 
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" id="about">
   <div class="modal-dialog modal-dialog-centered  modal-sm" role="document">
-    <div class="modal-content justify-content-center">
+    <div class="modal-content justify-content-center " style="border-radius: 15px;">
       <div class="modal-header text-center">
         <h5 class="modal-title">About Webtimekeeper <i class="bi bi-clock"></i></h5>
       </div>
