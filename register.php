@@ -15,7 +15,24 @@ if(isset($_POST['register'])){
         }else{
             $searchUsername = mysqli_query($conn,"SELECT * FROM tblUsers WHERE username = '$username'");
             if($searchUsername->num_rows > 0) {
-                echo "<script>alert('Username already registered.');</script>";
+                echo "
+                <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                    <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px; background-color: hsl(0, 0%, 96%);'>
+                        <div class='toast-header'>
+                            <strong class='mr-auto'>Oh no!</strong>
+                            <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                            </button>
+                        </div>
+                        <div class='toast-body text-center d-flex'>
+                            <span><i class='bi bi-check-circle'></i></span>
+                            <div class='d-flex flex-grow-1 align-items-center'>
+                                <span class='fw-semibold'>User already registered.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ";
             }else{
                 $sqladduser = mysqli_query($conn,"INSERT INTO tblUsers (username, fullname, password) VALUES('$username', '$fullname', '$password')");
 
@@ -29,7 +46,24 @@ if(isset($_POST['register'])){
                     );
                 ");
 
-                echo "<script>alert('User created successfully');</script>";
+                echo "
+                <div aria-live='polite' aria-atomic='true' class='d-flex justify-content-center align-items-center' >
+                    <div role='alert' class='toast show fade ' data-delay='5000' data-animation='true' style='position: absolute; z-index: 2; top: 50%; -ms-transform: translateY(-50%); transform: translateY(-50%); border-radius: 15px; background-color: hsl(0, 0%, 96%);'>
+                        <div class='toast-header'>
+                            <strong class='mr-auto'>Success!</strong>
+                            <button type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>
+                            <span aria-hidden='true'>&times;</span>
+                            </button>
+                        </div>
+                        <div class='toast-body text-center d-flex'>
+                            <span><i class='bi bi-check-circle'></i></span>
+                            <div class='d-flex flex-grow-1 align-items-center'>
+                                <span class='fw-semibold'>User successfully created.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                ";
             }
         }
     }else{
