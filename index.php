@@ -276,10 +276,10 @@ if(isset($_POST['view'])) {
                     <input type="text" name="notes" id="notes" class="form-control" placeholder="Enter notes" aria-label="Enter notes" aria-describedby="basic-addon2">
                 </div>
                 
-                <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-                    <input type="submit" name="timein" class="btn btn-success" value="Timein" <?php echo $timein;?>/>
-                    <input type="submit" name="timeout" class="btn btn-primary" value="Timeout" <?php echo $timeout;?>/>
-                    <input type="submit" name="view" class="btn btn-info" value="View"/>
+                <div class="btn-group btn-group-lg " role="group" aria-label="Basic example">
+                    <input type="submit" name="timein" class="btn text-primary btn-outline-secondary" style="background-color: hsl(0, 0%, 96%)" value="Timein" <?php echo $timein;?>/>
+                    <input type="submit" name="timeout" class="btn text-primary btn-outline-secondary" style="background-color: hsl(0, 0%, 96%)" value="Timeout" <?php echo $timeout;?>/>
+                    <input type="submit" name="view" class="btn text-primary btn-outline-secondary " style="background-color: hsl(0, 0%, 96%)" value="View"/>
                 </div>
 
                 <p class="text-center text-muted mt-3 mb-0">Don't have an account?  <a href="register.php"
