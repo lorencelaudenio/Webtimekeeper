@@ -289,7 +289,7 @@ if(isset($_POST['view'])) {
                             <h4 class='mb-3'>Webtimekeeper</h4>
                         </div>
                         <div class='col-md-auto'>
-                        <a class='' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'><h4><i class='bi bi-list'></i></h4></a>
+                        <a class='' href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false' ><h4 ><i class='bi bi-list' ></i></h4></a>
                             <div class="dropdown-menu">
                             <a class="dropdown-item" data-toggle="modal" data-target="#about" href="about.php"><i class="bi bi-info-circle"></i> About</a>
                             <a class="dropdown-item" data-toggle="modal" data-target="#privacy" href="privacy.php"><i class="bi bi-shield-check"></i> Privacy</a>
